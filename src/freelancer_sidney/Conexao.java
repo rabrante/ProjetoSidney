@@ -24,7 +24,7 @@ public class Conexao {
         //Class.forName("com.mysql.jdbc.Driver");
        // con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/ocorrenciasanimais3","root","");
          Class.forName("org.firebirdsql.jdbc.FBDriver");
-         con =  DriverManager.getConnection("jdbc:firebirdsql:localhost/3050:C://DBROSA.GDB","SYSDBA","masterkey");
+         con =  DriverManager.getConnection("jdbc:firebirdsql:localhost/3050:C://DBROSA.GDB","sysdba","masterkey");
          System.out.println("its alive");
     }
     catch (SQLException e) {

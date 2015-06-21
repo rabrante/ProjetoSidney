@@ -14,6 +14,7 @@ import javafx.scene.Group;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,28 +29,46 @@ public class LoadTable {
     
     Connection con = null;
     
-    public void LoadTable(TableView tableView) throws SQLException{
+    public void LoadTable(TableView tableView) throws SQLException
+    {
         Group root = new Group();
         
         con = Conexao.conectar();
-       PreparedStatement statement = con.prepareStatement("SELECT * "
-                                                        + " FROM ITEMPEDIDO"
-                                                        + " INNER JOIN PEDIDO ON ITEMPEDIDO.PEDIDO = PEDIDO.PEDIDO"
-                                                        + " WHERE "
-                                                        + " ITEMPEDIDO.PEDIDO = '"+pedido+"'"
-                                                        + " AND PEDIDO.CODVEN = '"+vendedor+"'");
+        if(con != null)
+        {
+            PreparedStatement statement = con.prepareStatement("SELECT * "
+                                                         + " FROM ITEMPEDIDO"
+                                                         + " INNER JOIN PEDIDO ON ITEMPEDIDO.PEDIDO = PEDIDO.PEDIDO"
+                                                         + " WHERE "
+                                                         + " PEDIDO.CODVEN = '"+vendedor+"'");
+                                                        // + " AND PEDIDO.CODVEN = '"+vendedor+"'");
             result = statement.executeQuery();
             result.next();
-           
-            System.out.println(result.getString(1));
-          while(result.next()){  
-                
-                        System.out.println(result.getString(1));
-                        //data.addAll(new ItemPedido(result.getInt("PEDIDO"), result.getInt("CODART"), result.getString("DESCRICAO"), result.getInt("QTDSAI"), result.getInt("QTDRET"), result.getFloat("PRECUS"), result.getFloat("PREVEN")));
-                        data.add(new ItemPedido(result.getString("PEDIDO"), result.getString("CODART"), result.getString("DESCRICAO"), result.getFloat("QTDSAI"), result.getFloat("QTDRET"), result.getFloat("PRECUS"), result.getFloat("PREVEN")));
-                  
-          }
-  
+
+            
+            if(result.next())
+            {
+                System.out.println(result.getString(1));
+                while(result.next())
+                {  
+
+                             System.out.println(result.getString(1));
+                             //data.addAll(new ItemPedido(result.getInt("PEDIDO"), result.getInt("CODART"), result.getString("DESCRICAO"), result.getInt("QTDSAI"), result.getInt("QTDRET"), result.getFloat("PRECUS"), result.getFloat("PREVEN")));
+                             data.add(new ItemPedido(result.getString("PEDIDO"), result.getString("CODART"), result.getString("DESCRICAO"), result.getFloat("QTDSAI"), result.getFloat("QTDRET"), result.getFloat("PRECUS"), result.getFloat("PREVEN")));
+                }
+
+                tableView.setItems(data);  
+            }
+            else
+            {
+                data.removeAll();
+                JOptionPane.showMessageDialog(null, "valor errado");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Não foi possivel conectar");
+        }
         /*TableColumn firstNameCol = new TableColumn();  
   
         firstNameCol.setText("First");  
@@ -85,7 +104,7 @@ AND PEDIDO.CODVEN = '005'
   
         //TableView tableView = new TableView();  
           
-        tableView.setItems(data);  
+    
   
        // tableView.getColumns().addAll(firstNameCol, lastNameCol, emailCol);  
   
