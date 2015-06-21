@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="mainPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="mainPane" stylesheets="@../stylesheets/Login_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.controller.LoginController">
+   <children>
+      <AnchorPane fx:id="loginPane" layoutX="85.0" layoutY="75.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="636.0" styleClass="loginPane" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="75.0">
+         <children>
+            <VBox alignment="CENTER" layoutX="71.0" layoutY="50.0" spacing="175.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="71.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <Label fx:id="lbRosas" alignment="TOP_CENTER" layoutX="233.0" layoutY="82.0" prefHeight="81.0" prefWidth="176.0" styleClass="lbRosas" text="ROSAS" textAlignment="CENTER">
+                     <font>
+                        <Font name="Gadugi" size="55.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="91.0" layoutY="299.0" spacing="100.0">
+                     <children>
+                        <VBox fx:id="vBoxLogin" layoutX="91.0" layoutY="322.0" prefHeight="99.0" prefWidth="234.0" spacing="10.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="311.0" AnchorPane.topAnchor="322.0">
+                           <children>
+                              <HBox fx:id="hBoxUser" layoutX="105.0" layoutY="67.0" spacing="10.0">
+                                 <children>
+                                    <Label fx:id="lbUser" layoutX="105.0" layoutY="71.0" styleClass="lbUser" text="Usuário: ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tfUser" layoutX="171.0" layoutY="67.0" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                              <HBox fx:id="hBoxPassword" layoutX="113.0" layoutY="101.0" spacing="10.0">
+                                 <children>
+                                    <Label fx:id="lbPass" layoutX="113.0" layoutY="105.0" styleClass="lbPass" text="Senha: ">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="8.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="tfPass" layoutX="171.0" layoutY="101.0" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="hBoxLabelButton" layoutX="113.0" layoutY="145.0" prefHeight="22.0" prefWidth="207.0" spacing="23.0">
+                                 <children>
+                                    <Label fx:id="lbStatus" layoutX="113.0" layoutY="149.0" prefHeight="24.0" prefWidth="136.0" />
+                                    <Button fx:id="btLogin" layoutX="253.0" layoutY="145.0" mnemonicParsing="false" onAction="#loginButtonPressed" text="Entrar">
+                                       <styleClass>
+                                          <String fx:value="loginPane" />
+                                          <String fx:value="btLogin" />
+                                       </styleClass>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <ImageView layoutX="413.0" layoutY="299.0">
+                           <image>
+                              <Image url="@../../../../resources/Login_Icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

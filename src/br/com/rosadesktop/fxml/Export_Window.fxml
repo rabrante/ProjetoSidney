@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainPane" stylesheets="@../stylesheets/Export_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.controller.Export_WindowController">
+   <children>
+      <HBox layoutX="40.0" layoutY="33.0" prefHeight="26.0" prefWidth="756.0" spacing="75.0">
+         <children>
+            <HBox layoutX="19.0" layoutY="17.0">
+               <children>
+                  <Label layoutX="19.0" layoutY="17.0" prefHeight="26.0" prefWidth="120.0" text="Cod. Vendedor: ">
+                     <font>
+                        <Font name="Gadugi" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="158.0" layoutY="18.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="367.0" layoutY="20.0" spacing="5.0">
+               <children>
+                  <Label layoutX="367.0" layoutY="22.0" text="Data: ">
+                     <font>
+                        <Font name="Gadugi" size="15.0" />
+                     </font>
+                  </Label>
+                  <DatePicker layoutX="429.0" layoutY="20.0" prefHeight="25.0" prefWidth="137.0" />
+                  <Label layoutX="571.0" layoutY="24.0" text="Até">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <DatePicker layoutX="622.0" layoutY="23.0" prefHeight="25.0" prefWidth="137.0" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <TableView fx:id="tableExportContent" layoutX="53.0" layoutY="82.0" prefHeight="473.0" prefWidth="521.0" styleClass="tableView">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Cod Vend" />
+          <TableColumn prefWidth="75.0" text="Cod Ped" />
+            <TableColumn prefWidth="75.0" text="Qtd Itens" />
+            <TableColumn prefWidth="75.0" text="C4" />
+            <TableColumn prefWidth="75.0" text="C5" />
+            <TableColumn prefWidth="75.0" text="C6" />
+            <TableColumn prefWidth="75.0" text="C7" />
+        </columns>
+      </TableView>
+      <Button fx:id="btExport" layoutX="681.0" layoutY="514.0" mnemonicParsing="false" styleClass="btExport" text="Exportar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btBuscar" layoutX="600.0" layoutY="515.0" mnemonicParsing="false" onAction="#searchOnDatabase" styleClass="btExport" text="Buscar">
+         <font>
+            <Font name="Gadugi" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
