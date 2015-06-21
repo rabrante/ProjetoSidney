@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@../stylesheets/Choose_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.controller.Choose_WindowController">
+   <children>
+      <Button fx:id="btExport" layoutX="400.0" mnemonicParsing="false" onAction="#buttonExportFile" prefHeight="600.0" prefWidth="400.0" text="Exportar Arquivo para Tablet" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button fx:id="btImport" mnemonicParsing="false" onAction="#buttonImportFile" prefHeight="600.0" prefWidth="400.0" text="Importar Arquivo do Tablet" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Gadugi" size="26.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
