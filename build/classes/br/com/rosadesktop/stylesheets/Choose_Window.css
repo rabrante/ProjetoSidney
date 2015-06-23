@@ -9,13 +9,13 @@ and open the template in the editor.
 */
 
 .button{
-    -fx-background-color: #666666;
-    -fx-text-fill: #ffaec9;
+    -fx-background-color: #656565;
+    -fx-text-fill: #ccccff;
 }
 
 .button:hover {
-    -fx-background-color: #ff9dc9;
-    -fx-text-fill: #666666;
+    -fx-background-color: #808080;
+    -fx-text-fill: #ccccff;
     -fx-cursor: hand;
     -fx-font-size:21pt;
 }

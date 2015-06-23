@@ -40,8 +40,9 @@ public class LoadTable {
                                                          + " FROM ITEMPEDIDO"
                                                          + " INNER JOIN PEDIDO ON ITEMPEDIDO.PEDIDO = PEDIDO.PEDIDO"
                                                          + " WHERE "
-                                                         + " PEDIDO.CODVEN = '"+vendedor+"'");
+                                                         + " PEDIDO.CODVEN = ?");
                                                         // + " AND PEDIDO.CODVEN = '"+vendedor+"'");
+            statement.setString(1, pedido);
             result = statement.executeQuery();
             result.next();
 

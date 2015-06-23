@@ -9,6 +9,7 @@ import br.com.rosadesktop.interfaces.Window_Interface;
 import br.com.rosadesktop.view.Choose_Window;
 import br.com.rosadesktop.view.Export_Window;
 import br.com.rosadesktop.view.Import_Window;
+import br.com.rosadesktop.view.Login_Window;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.stage.Stage;
@@ -31,7 +32,7 @@ public class Window_Controller {
     }
     
     public void openLoginWindow() {
-        Login login = new Login();
+        Login_Window login = new Login_Window();
         currentWindow = (Window_Interface)login;
         try {
             login.start(new Stage());
@@ -52,7 +53,7 @@ public class Window_Controller {
         Stage s = currentWindow.getStage();
         currentWindow = choose;
         
-        s.close();
+        s.getScene().getWindow().hide();
     }   
     
     public void openExportWindow()
@@ -67,7 +68,7 @@ public class Window_Controller {
         Stage s = currentWindow.getStage();
         currentWindow = export;
         
-        s.close();
+       s.getScene().getWindow().hide();
     }
     
     public void openImportWindow()
@@ -82,7 +83,7 @@ public class Window_Controller {
         Stage s = currentWindow.getStage();
         currentWindow = importWindow;
         
-        s.close();
+        s.getScene().getWindow().hide();
     }
     
 }

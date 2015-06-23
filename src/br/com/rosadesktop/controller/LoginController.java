@@ -6,8 +6,10 @@
 package br.com.rosadesktop.controller;
 
 
+import br.com.rosadesktop.view.Login_Window;
 import br.com.rosadesktop.Window_Controller;
 import br.com.rosadesktop.interfaces.Window_Interface;
+import br.com.rosadesktop.model.Login;
 import br.com.rosadesktop.view.Choose_Window;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,7 +40,12 @@ public class LoginController implements Initializable {
     
     @FXML private void loginButtonPressed(ActionEvent event)
     {
-        if(tfPass.getText().equals("1234") && tfUser.getText().equals("test"))
+        String usuario = tfUser.getText();
+        String password = tfPass.getText();
+        
+        Login login = new Login(usuario,password);
+        
+        if(login.validLogin())//tfPass.getText().equals("1234") && tfUser.getText().equals("test"))
         {
             lbStatus.setText("Logado");
             lbStatus.setStyle("-fx-text-fill:blue;");
@@ -56,6 +63,8 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        if(rb != null)
+            System.out.println(rb.toString());
     }    
     
 }

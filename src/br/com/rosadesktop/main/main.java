@@ -5,8 +5,8 @@
  */
 package br.com.rosadesktop.main;
 
-import br.com.rosadesktop.Login;
 import br.com.rosadesktop.Window_Controller;
+import br.com.rosadesktop.dao.ConexaoDAO;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -23,6 +23,7 @@ public class main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         Window_Controller wc = Window_Controller.getInstance();
+        ConexaoDAO.getInstance();
         wc.openLoginWindow();
         primaryStage.close();
     }

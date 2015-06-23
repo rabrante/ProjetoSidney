@@ -9,11 +9,11 @@ and open the template in the editor.
 */
 
 .mainPane {
-    -fx-background-color: #ffaec9;
+    -fx-background-color: #909090;
 }
 
 .loginPane {
-    -fx-background-color: #666666;
+    -fx-background-color: #656565;
     -fx-border-radius: 50px;
 }
 
@@ -23,17 +23,17 @@ and open the template in the editor.
 }
 
 .btLogin {
-    -fx-text-fill: #f96ab9; //#666666
+    -fx-text-fill: #ccccff; //#666666
 }
 
 .lbUser {
-    -fx-text-fill: #f96ab9;
+    -fx-text-fill: #ccccff;
 }
 
 .lbPass {
-    -fx-text-fill: #f96ab9;
+    -fx-text-fill: #ccccff;
 }
 
 .lbRosas {
-    -fx-text-fill: #ffaec9;
+    -fx-text-fill: #ccccff;
 }

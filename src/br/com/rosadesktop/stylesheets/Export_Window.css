@@ -8,26 +8,26 @@ and open the template in the editor.
     Author     : Claudio
 */
 .mainPane{
-    -fx-background-color: #ffaec9;
+    -fx-background-color: #656565;
 }
 Label {
-    -fx-text-fill: #656565;
+    -fx-text-fill: #ccccff;
 }
 
 .btExport{
-    -fx-background-color: #ffaec9;
-    -fx-text-fill: #656565;
+    -fx-background-color: #656565;
+    -fx-text-fill: #ccccff;
 }
 
 .btExport:hover {
-    -fx-background-color: #fe9db8;
+    -fx-background-color: #808080;
     -fx-cursor: hand;
 }
 
 .tableView {
-   -fx-table-header-background-color:#f96ab9;
+   -fx-table-header-background-color:#ccccff;
 }
 
 .table-view .column-header {
-    -fx-background-color: #ff99cc;
+    -fx-background-color: #808080;
 }

@@ -43,11 +43,11 @@
         <columns>
           <TableColumn prefWidth="75.0" text="Cod Vend" />
           <TableColumn prefWidth="75.0" text="Cod Ped" />
-            <TableColumn prefWidth="75.0" text="Qtd Itens" />
-            <TableColumn prefWidth="75.0" text="C4" />
-            <TableColumn prefWidth="75.0" text="C5" />
-            <TableColumn prefWidth="75.0" text="C6" />
-            <TableColumn prefWidth="75.0" text="C7" />
+            <TableColumn prefWidth="75.0" text="Cod Cliente" />
+            <TableColumn prefWidth="83.0" text="Nome Cliente" />
+            <TableColumn prefWidth="67.0" text="Total Ped" />
+            <TableColumn prefWidth="75.0" text="Status" />
+            <TableColumn prefWidth="75.0" text="Emissão" />
         </columns>
       </TableView>
       <Button fx:id="btExport" layoutX="681.0" layoutY="514.0" mnemonicParsing="false" styleClass="btExport" text="Exportar">

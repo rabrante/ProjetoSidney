@@ -13,13 +13,13 @@
 
 <AnchorPane id="AnchorPane" fx:id="mainPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="mainPane" stylesheets="@../stylesheets/Login_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.controller.LoginController">
    <children>
-      <AnchorPane fx:id="loginPane" layoutX="85.0" layoutY="75.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="636.0" styleClass="loginPane" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="75.0">
+      <AnchorPane fx:id="loginPane" layoutX="85.0" layoutY="75.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="636.0" styleClass="loginPane" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="75.0">
          <children>
             <VBox alignment="CENTER" layoutX="71.0" layoutY="50.0" spacing="175.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="71.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label fx:id="lbRosas" alignment="TOP_CENTER" layoutX="233.0" layoutY="82.0" prefHeight="81.0" prefWidth="176.0" styleClass="lbRosas" text="ROSAS" textAlignment="CENTER">
+                  <Label fx:id="lbRosas" alignment="TOP_CENTER" layoutX="233.0" layoutY="82.0" prefHeight="81.0" prefWidth="496.0" styleClass="lbRosas" text="Rosas - Mobile" textAlignment="CENTER">
                      <font>
-                        <Font name="Gadugi" size="55.0" />
+                        <Font name="Gadugi" size="44.0" />
                      </font>
                   </Label>
                   <HBox layoutX="91.0" layoutY="299.0" spacing="100.0">
