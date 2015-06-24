@@ -6,10 +6,10 @@
 package br.com.rosadesktop;
 
 import br.com.rosadesktop.interfaces.Window_Interface;
-import br.com.rosadesktop.view.Choose_Window;
-import br.com.rosadesktop.view.Export_Window;
-import br.com.rosadesktop.view.Import_Window;
-import br.com.rosadesktop.view.Login_Window;
+import br.com.rosadesktop.controller.Choose_Controller;
+import br.com.rosadesktop.controller.Export_Controller;
+import br.com.rosadesktop.controller.Import_Controller;
+import br.com.rosadesktop.controller.Login_Controller;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.stage.Stage;
@@ -32,7 +32,7 @@ public class Window_Controller {
     }
     
     public void openLoginWindow() {
-        Login_Window login = new Login_Window();
+        Login_Controller login = new Login_Controller();
         currentWindow = (Window_Interface)login;
         try {
             login.start(new Stage());
@@ -43,7 +43,7 @@ public class Window_Controller {
     
     public void openSelectedImportOrExport()
     {
-        Choose_Window choose = new Choose_Window();
+        Choose_Controller choose = new Choose_Controller();
         
         try {
             choose.start(new Stage());
@@ -58,7 +58,7 @@ public class Window_Controller {
     
     public void openExportWindow()
     {
-        Export_Window export = new Export_Window();
+        Export_Controller export = new Export_Controller();
         
         try {
             export.start(new Stage());
@@ -73,7 +73,7 @@ public class Window_Controller {
     
     public void openImportWindow()
     {
-        Import_Window importWindow = new Import_Window();
+        Import_Controller importWindow = new Import_Controller();
         
         try {
             importWindow.start(new Stage());
