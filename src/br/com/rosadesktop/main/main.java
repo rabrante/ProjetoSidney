@@ -18,13 +18,11 @@ public class main extends Application{
     
     public static void main(String[] args) throws Exception {
         launch(args);
-        
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         Window_Controller wc = Window_Controller.getInstance();
-        
         ConexaoDAO.getInstance();
         wc.openLoginWindow();
         primaryStage.close();
