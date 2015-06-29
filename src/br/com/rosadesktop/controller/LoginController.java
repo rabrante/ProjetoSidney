@@ -11,6 +11,7 @@ import br.com.rosadesktop.Window_Controller;
 import br.com.rosadesktop.interfaces.Window_Interface;
 import br.com.rosadesktop.model.Login;
 import br.com.rosadesktop.view.Choose_Window;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -21,6 +22,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -59,6 +62,20 @@ public class LoginController implements Initializable {
             lbStatus.setStyle("-fx-text-fill:red;");
         }
     }
+    
+    
+    @FXML
+    public void handleEnterTyped(KeyEvent event){
+        
+        if (event.getCode().equals(KeyCode.ENTER)) {
+        
+            loginButtonPressed(new ActionEvent());
+            
+        }
+    }
+        
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

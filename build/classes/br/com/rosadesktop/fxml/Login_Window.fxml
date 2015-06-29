@@ -33,7 +33,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="tfUser" layoutX="171.0" layoutY="67.0" />
+                                    <TextField fx:id="tfUser" layoutX="171.0" layoutY="67.0" onKeyPressed="#handleEnterTyped" />
                                  </children>
                                  <opaqueInsets>
                                     <Insets />
@@ -55,7 +55,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <PasswordField fx:id="tfPass" layoutX="171.0" layoutY="101.0" />
+                                    <PasswordField fx:id="tfPass" layoutX="171.0" layoutY="101.0" onKeyPressed="#handleEnterTyped" />
                                  </children>
                               </HBox>
                               <HBox fx:id="hBoxLabelButton" layoutX="113.0" layoutY="145.0" prefHeight="22.0" prefWidth="207.0" spacing="23.0">
