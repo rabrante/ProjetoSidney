@@ -7,11 +7,8 @@
     <offline-allowed/>
   </information>
   <resources>
-    <jfx:javafx-runtime version="2.2+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
-  </resources>
-  <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Freelancer_Sidney.jar" size="111541" download="eager" />
+    <jar href="Freelancer_Sidney.jar" size="81306" download="eager" />
     <jar href="lib/firebirdsql.jar" size="303792" download="eager" />
     <jar href="lib/jaas.jar" size="104195" download="eager" />
     <jar href="lib/log4j-core.jar" size="66624" download="eager" />
@@ -19,7 +16,7 @@
     <jar href="lib/mini-j2ee.jar" size="22200" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Freelancer_Sidney" >
-    <param name="requiredFXVersion" value="2.2+"/>
+    <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
   <jfx:javafx-desc  width="800" height="600" main-class="br.com.rosadesktop.main.main"  name="Freelancer_Sidney" />
   <update check="always"/>
