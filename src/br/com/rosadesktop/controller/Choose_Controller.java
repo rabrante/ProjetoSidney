@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.rosadesktop.view;
+package br.com.rosadesktop.controller;
 
 import br.com.rosadesktop.interfaces.Window_Interface;
 import javafx.application.Application;
@@ -16,11 +16,12 @@ import javafx.stage.Stage;
  *
  * @author Claudio
  */
-public class Import_Window extends Application implements Window_Interface{
+public class Choose_Controller extends Application implements Window_Interface
+{
     Stage primaryStage;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/br/com/rosadesktop/fxml/Import_Window.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/br/com/rosadesktop/fxml/Choose_Window.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -34,4 +35,5 @@ public class Import_Window extends Application implements Window_Interface{
     public Stage getStage() {
         return this.primaryStage;
     }
+   
 }

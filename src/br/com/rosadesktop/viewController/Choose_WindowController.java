@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.rosadesktop.controller;
+package br.com.rosadesktop.viewController;
 
+import br.com.rosadesktop.Window_Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -15,15 +17,19 @@ import javafx.fxml.Initializable;
  *
  * @author Claudio
  */
-public class Export_WindowController implements Initializable {
+public class Choose_WindowController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
-    
-    @FXML private void searchOnDatabase()
+    @FXML private void buttonExportFile(ActionEvent event)
     {
-        
+        Window_Controller.getInstance().openExportWindow();
+    }
+    
+    @FXML private void buttonImportFile(ActionEvent event)
+    {
+        Window_Controller.getInstance().openImportWindow();
     }
     
     @Override

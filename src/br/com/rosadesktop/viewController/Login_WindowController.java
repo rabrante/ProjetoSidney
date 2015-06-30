@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.rosadesktop.controller;
+package br.com.rosadesktop.viewController;
 
 
-import br.com.rosadesktop.view.Login_Window;
+import br.com.rosadesktop.controller.Login_Controller;
 import br.com.rosadesktop.Window_Controller;
 import br.com.rosadesktop.interfaces.Window_Interface;
 import br.com.rosadesktop.model.Login;
-import br.com.rosadesktop.view.Choose_Window;
+import br.com.rosadesktop.controller.Choose_Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -29,7 +29,7 @@ import javafx.stage.Stage;
  *
  * @author Claudio
  */
-public class LoginController implements Initializable {
+public class Login_WindowController implements Initializable {
     
     @FXML
     private Label lbStatus;
@@ -39,6 +39,8 @@ public class LoginController implements Initializable {
     
     @FXML
     private PasswordField tfPass;
+    
+    private Login_Controller loginWindow;
     
     @FXML private void loginButtonPressed(ActionEvent event)
     {
@@ -78,5 +80,10 @@ public class LoginController implements Initializable {
         if(rb != null)
             System.out.println(rb.toString());
     }    
+
+    public void setMainClass(Login_Controller aThis)
+    {
+        this.loginWindow = aThis;
+    }
     
 }

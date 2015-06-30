@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.rosadesktop.view;
+package br.com.rosadesktop.controller;
 
+import br.com.rosadesktop.viewController.Login_WindowController;
 import br.com.rosadesktop.interfaces.Window_Interface;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,16 +17,24 @@ import javafx.stage.Stage;
  *
  * @author Claudio
  */
-public class Choose_Window extends Application implements Window_Interface
-{
+public class Login_Controller extends Application implements Window_Interface{
+    
     Stage primaryStage;
+    
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/br/com/rosadesktop/fxml/Choose_Window.fxml"));
+    public void start(Stage stage) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/br/com/rosadesktop/fxml/Login_Window.fxml"));
         
+        Parent root = fxmlLoader.load();
+        
+        Login_WindowController loginController = fxmlLoader.getController();
+        
+        loginController.setMainClass(this);
+         
         Scene scene = new Scene(root);
         
-        this.primaryStage = primaryStage;
+        this.primaryStage = stage;
+        
         this.primaryStage.setScene(scene);
         this.primaryStage.setResizable(false);
         this.primaryStage.show();
@@ -33,7 +42,8 @@ public class Choose_Window extends Application implements Window_Interface
 
     @Override
     public Stage getStage() {
-        return this.primaryStage;
+       return this.primaryStage;
     }
-   
+
+    
 }
