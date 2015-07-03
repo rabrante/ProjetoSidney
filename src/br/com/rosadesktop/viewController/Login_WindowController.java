@@ -21,6 +21,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -59,6 +61,16 @@ public class Login_WindowController implements Initializable {
         {
             lbStatus.setText("Usuário e senha inválido");
             lbStatus.setStyle("-fx-text-fill:red;");
+        }
+    }
+    
+    @FXML
+    public void handleEnterPressed(KeyEvent event){
+        
+        if (event.getCode().equals(KeyCode.ENTER)) {
+        
+            loginButtonPressed(new ActionEvent());
+            
         }
     }
     

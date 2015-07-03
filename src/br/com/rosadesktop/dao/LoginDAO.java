@@ -46,6 +46,7 @@ public class LoginDAO {
                 if(statement != null)
                 {
                     result = statement.executeQuery();
+                    
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);

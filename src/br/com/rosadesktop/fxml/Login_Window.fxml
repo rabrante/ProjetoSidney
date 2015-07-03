@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="mainPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="mainPane" stylesheets="@../stylesheets/Login_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.controller.LoginController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="mainPane" stylesheets="@../stylesheets/Login_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.viewController.Login_WindowController">
    <children>
       <AnchorPane fx:id="loginPane" layoutX="85.0" layoutY="75.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="636.0" styleClass="loginPane" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="75.0">
          <children>
@@ -33,7 +33,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="tfUser" layoutX="171.0" layoutY="67.0" />
+                                    <TextField fx:id="tfUser" layoutX="171.0" layoutY="67.0" onKeyPressed="#handleEnterPressed" />
                                  </children>
                                  <opaqueInsets>
                                     <Insets />
@@ -55,7 +55,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <PasswordField fx:id="tfPass" layoutX="171.0" layoutY="101.0" />
+                                    <PasswordField fx:id="tfPass" layoutX="171.0" layoutY="101.0" onKeyPressed="#handleEnterPressed" />
                                  </children>
                               </HBox>
                               <HBox fx:id="hBoxLabelButton" layoutX="113.0" layoutY="145.0" prefHeight="22.0" prefWidth="207.0" spacing="23.0">

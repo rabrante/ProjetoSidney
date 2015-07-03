@@ -5,8 +5,9 @@
  */
 package br.com.rosadesktop.controller;
 
-import br.com.rosadesktop.viewController.Login_WindowController;
 import br.com.rosadesktop.interfaces.Window_Interface;
+import br.com.rosadesktop.viewController.Login_WindowController;
+import br.com.rosadesktop.viewController.Pedido_WindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,9 +16,10 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Claudio
+ * @author Rafael
  */
-public class Login_Controller extends Application implements Window_Interface{
+public class Pedido_Controller  extends Application implements Window_Interface{
+    
     
     Stage primaryStage;
     
@@ -25,11 +27,11 @@ public class Login_Controller extends Application implements Window_Interface{
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         
-        Parent root = FXMLLoader.load(getClass().getResource("/br/com/rosadesktop/fxml/Login_Window.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/br/com/rosadesktop/fxml/Pedido_Window.fxml"));
         
-        Login_WindowController loginController = fxmlLoader.getController();
+        Pedido_WindowController PedidoController = fxmlLoader.getController();
         
-        loginController.setMainClass(this);
+        PedidoController.setMainClass(this);
          
         Scene scene = new Scene(root);
         
@@ -44,6 +46,5 @@ public class Login_Controller extends Application implements Window_Interface{
     public Stage getStage() {
        return this.primaryStage;
     }
-
     
 }

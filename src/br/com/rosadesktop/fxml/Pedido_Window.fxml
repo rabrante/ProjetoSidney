@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.viewController.Pedido_WindowController">
+    <stylesheets>
+        <URL value="@/br/com/rosadesktop/stylesheets/pedido_window.css" />
+    </stylesheets>
+   <children>
+      <TableView layoutX="41.0" layoutY="48.0" prefHeight="262.0" prefWidth="500.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="ARTIGO" />
+          <TableColumn prefWidth="75.0" text="SAIDA" />
+            <TableColumn prefWidth="75.0" text="DESCRICAO" />
+            <TableColumn prefWidth="75.0" text="DEVOL" />
+            <TableColumn prefWidth="75.0" text="VEND" />
+            <TableColumn prefWidth="75.0" text="VALOR" />
+        </columns>
+      </TableView>
+      <Button layoutX="489.0" layoutY="361.0" mnemonicParsing="false" text="Voltar" />
+   </children>
+</AnchorPane>
