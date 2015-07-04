@@ -84,5 +84,16 @@ public class InformationExportDAO
     {
         return listOfPedidos;
     }
+
+    public void exportPedidosToSQLlite(String pathDB) 
+    {
+        Connection conSQLlite = ConexaoSQLDAO.getInstance(pathDB);
+        
+        try {
+            conSQLlite.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(InformationExportDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

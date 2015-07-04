@@ -51,6 +51,11 @@ public class InformationFilterExport implements iObservable{
         }
     }
     
+    public void exportPedidosSelected(String pathDB)
+    {
+        this.informationExportDAO.exportPedidosToSQLlite(pathDB);
+    }
+    
     public String getCodVend() {
         return codVend;
     }

@@ -118,5 +118,10 @@ public class Export_WindowController implements Initializable, iObserver{
         ObservableList<Pedido> listOfPedidos = model.getPedidos();
         tableExportContent.setItems(listOfPedidos);
     }
+    
+    @FXML private void exportButtonPressed(ActionEvent event)
+    {
+        this.controller.exportFile();
+    }
 
 }

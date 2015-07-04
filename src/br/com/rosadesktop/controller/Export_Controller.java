@@ -8,12 +8,16 @@ package br.com.rosadesktop.controller;
 import br.com.rosadesktop.interfaces.Window_Interface;
 import br.com.rosadesktop.model.InformationFilterExport;
 import br.com.rosadesktop.viewController.Export_WindowController;
+import java.io.File;
+import java.io.IOException;
 import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -60,5 +64,24 @@ public class Export_Controller extends Application implements Window_Interface{
         this.informationModel.setDateTo(dateTo);
         
         this.informationModel.loadInformation();
+    }
+
+    public void exportFile() 
+    {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(".rosa", "Banco de dados do Rosa Tablet"));
+        fileChooser.setTitle("Save Database");
+        
+        File file = fileChooser.showSaveDialog(this.getStage());
+        
+        String description = fileChooser.getSelectedExtensionFilter().getDescription();
+//        System.out.println(description);
+        
+        if (file != null) 
+        {
+            String pathDB = file.getPath().replace("\\", "\\\\")+description;
+//            System.out.println(pathDB);
+            this.informationModel.exportPedidosSelected(pathDB);
+        }
     }
 }

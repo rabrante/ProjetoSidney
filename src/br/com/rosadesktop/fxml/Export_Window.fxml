@@ -50,7 +50,7 @@
             <TableColumn prefWidth="102.0" text="Emissão" />
         </columns>
       </TableView>
-      <Button fx:id="btExport" layoutX="651.0" layoutY="549.0" mnemonicParsing="false" styleClass="btExport" text="Exportar">
+      <Button fx:id="btExport" layoutX="651.0" layoutY="549.0" mnemonicParsing="false" onAction="#exportButtonPressed" styleClass="btExport" text="Exportar">
          <font>
             <Font size="16.0" />
          </font>
