@@ -15,29 +15,29 @@ public class ItemPedido {
     private SimpleStringProperty qtdRet;
     private SimpleStringProperty preCus;
     private SimpleStringProperty preVen;
-    
-    public ItemPedido(String Pedido, 
-                        String codArt, 
+
+    public ItemPedido(String pedido, 
+                        String codArt,
                         String descricao, 
                         String qtdSai,
                         String qtdRet,
-                        String preVen, 
-                        String preCus){
-        this.pedido = new SimpleStringProperty(Pedido);
+                        String preCus,
+                        String preVen) {
+        this.pedido = new SimpleStringProperty(pedido);
         this.codArt = new SimpleStringProperty(codArt);
         this.descricao = new SimpleStringProperty(descricao);
         this.qtdSai = new SimpleStringProperty(qtdSai);
         this.qtdRet = new SimpleStringProperty(qtdRet);
-        this.preVen = new SimpleStringProperty(preVen);
         this.preCus = new SimpleStringProperty(preCus);
+        this.preVen = new SimpleStringProperty(preVen);
     }
-    
+
     public String getPedido() {
         return pedido.get();
     }
 
-    public void setPedido(String Pedido) {
-        this.pedido = new SimpleStringProperty(Pedido);
+    public void setPedido(String pedido) {
+        this.pedido.set(pedido);
     }
 
     public String getCodArt() {
@@ -45,15 +45,15 @@ public class ItemPedido {
     }
 
     public void setCodArt(String codArt) {
-        this.codArt = new SimpleStringProperty(codArt);
+        this.codArt.set(codArt);
     }
 
     public String getDescricao() {
         return descricao.get();
     }
 
-    public void setDescricao(String Descricao) {
-        this.descricao = new SimpleStringProperty(Descricao);
+    public void setDescricao(String descricao) {
+        this.descricao.set(descricao);
     }
 
     public String getQtdSai() {
@@ -61,7 +61,7 @@ public class ItemPedido {
     }
 
     public void setQtdSai(String qtdSai) {
-        this.qtdSai = new SimpleStringProperty(qtdSai);
+        this.qtdSai.set(qtdSai);
     }
 
     public String getQtdRet() {
@@ -69,23 +69,23 @@ public class ItemPedido {
     }
 
     public void setQtdRet(String qtdRet) {
-        this.qtdRet = new SimpleStringProperty(qtdRet);
+        this.qtdRet.set(qtdRet);
     }
 
-    public String getPrecus() {
+    public String getPreCus() {
         return preCus.get();
     }
 
-    public void setPrecus(String Precus) {
-        this.preCus = new SimpleStringProperty(Precus);
+    public void setPreCus(String preCus) {
+        this.preCus.set(preCus);
     }
 
-    public String getPreven() {
+    public String getPreVen() {
         return preVen.get();
     }
 
-    public void setPreven(String Preven) {
-        this.preVen = new  SimpleStringProperty(Preven);
+    public void setPreVen(String preVen) {
+        this.preVen.set(preVen);
     }
-    
+
 }

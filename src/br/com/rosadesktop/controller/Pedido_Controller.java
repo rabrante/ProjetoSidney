@@ -5,6 +5,7 @@
  */
 package br.com.rosadesktop.controller;
 
+import br.com.rosadesktop.Window_Controller;
 import br.com.rosadesktop.interfaces.Window_Interface;
 import br.com.rosadesktop.model.Pedido;
 import br.com.rosadesktop.model.Pedido_WindowModel;
@@ -61,6 +62,11 @@ public class Pedido_Controller  extends Application implements Window_Interface
     @Override
     public Stage getStage() {
        return this.primaryStage;
+    }
+
+    public void buttonBackPressed() 
+    {
+        Window_Controller.getInstance().closeWindowPedido();
     }
     
 }

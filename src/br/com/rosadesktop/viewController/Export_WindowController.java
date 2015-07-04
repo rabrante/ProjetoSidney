@@ -5,6 +5,7 @@
  */
 package br.com.rosadesktop.viewController;
 
+import br.com.rosadesktop.Window_Controller;
 import br.com.rosadesktop.controller.Export_Controller;
 import br.com.rosadesktop.controller.Pedido_Controller;
 import br.com.rosadesktop.interfaces.iObservable;
@@ -102,12 +103,7 @@ public class Export_WindowController implements Initializable, iObserver{
                     {
                         int i = tableExportContent.getSelectionModel().getSelectedIndex();
                         Pedido pedido = (Pedido) tableExportContent.getItems().get(i);
-                        Pedido_Controller pedidoController = new Pedido_Controller(pedido);
-                        try {
-                            pedidoController.start(new Stage());
-                        } catch (Exception ex) {
-                            Logger.getLogger(Export_WindowController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                        Window_Controller.getInstance().openWindowPedido(pedido);
                     }
                 });
                 return row ;

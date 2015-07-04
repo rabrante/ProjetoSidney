@@ -47,6 +47,9 @@ public class Login_WindowController implements Initializable {
         String usuario = tfUser.getText();
         String password = tfPass.getText();
         
+        if(usuario.equalsIgnoreCase("SEARCH"))
+            usuario = usuario.toUpperCase();
+        
         controller.doLogin(usuario, password);
     }
     

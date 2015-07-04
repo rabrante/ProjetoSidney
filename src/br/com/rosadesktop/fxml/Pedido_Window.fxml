@@ -13,7 +13,7 @@
         <columns>
             <TableColumn minWidth="9.0" text="Pedido" />
             <TableColumn prefWidth="62.0" text="Cod Art" />
-            <TableColumn prefWidth="266.0" text="Descrição" />
+            <TableColumn prefWidth="270.0" text="Descrição" />
             <TableColumn prefWidth="44.0" text="Saida" />
             <TableColumn prefWidth="44.0" text="Devol" />
             <TableColumn prefWidth="88.0" text="Prec Custo" />

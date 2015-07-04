@@ -40,7 +40,7 @@ public class Pedido_WindowController implements Initializable , iObserver {
     
     @FXML public void btnVoltar(ActionEvent event)
     {
-        
+        this.controller.buttonBackPressed();
     }
     
     @Override
@@ -56,10 +56,6 @@ public class Pedido_WindowController implements Initializable , iObserver {
             tbView.getColumns().set(i, tableColumn);
         }
         
-        TableColumn tableColumn = (TableColumn) tbView.getColumns().get(6);
-        tableColumn.setCellValueFactory(new PropertyValueFactory("preVen"));
-        tbView.getColumns().set(6, tableColumn);
-        
     }    
 
     public void setController(Pedido_Controller aThis)
@@ -72,11 +68,7 @@ public class Pedido_WindowController implements Initializable , iObserver {
     {
         Pedido_WindowModel pedidoWindowModel = (Pedido_WindowModel) observable;
         ObservableList<ItemPedido> listOfItems = pedidoWindowModel.getListOfItems();
-        
-        if(listOfItems != null)
-        {
-            tbView.setItems(listOfItems);
-        }
+        tbView.setItems(listOfItems);        
     }
     
       
