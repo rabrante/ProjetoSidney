@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Freelancer_Sidney.jar" size="116721" download="eager" />
+    <jar href="Freelancer_Sidney.jar" size="116661" download="eager" />
     <jar href="lib/firebirdsql.jar" size="303792" download="eager" />
     <jar href="lib/jaas.jar" size="104195" download="eager" />
     <jar href="lib/log4j-core.jar" size="66624" download="eager" />

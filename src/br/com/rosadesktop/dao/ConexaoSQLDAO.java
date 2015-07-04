@@ -36,7 +36,7 @@ public class ConexaoSQLDAO
 
     private static void createTable(Connection con) 
     {                    
-        String createTablePedido = "CREATE TABLE PEDIDO "
+        String createTablePedido = "CREATE TABLE IF NOT EXISTS PEDIDO "
                                 + " (PEDIDO VARCHAR(6) PRIMARY KEY NOT NULL,"
                                 + " CODVEN VARCHAR(3),"
                                 + " CODCLI VARCHAR(4),"
