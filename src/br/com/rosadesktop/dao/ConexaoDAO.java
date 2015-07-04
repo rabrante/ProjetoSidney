@@ -5,7 +5,6 @@
 package br.com.rosadesktop.dao;
 
 import Properties.Properties_Manipulator;
-import static Properties.Properties_Manipulator.getProp;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -34,15 +33,15 @@ public class ConexaoDAO {
                 String path;
                 String user;
                 String pass;
+                String pathDB;
                 dataBase = prop.getProperty("prop.server.dataBase");
                 path = prop.getProperty("prop.server.path");
+                pathDB = prop.getProperty("prop.server.pathDB");
                 user = prop.getProperty("prop.server.user");
                 pass = prop.getProperty("prop.server.psw");
                 
-                System.out.println("dataBase = "+ dataBase+"   ------path= "+
-                                    path+" user= "+ user + " pass = "+pass);
                 Class.forName(dataBase);
-                con = DriverManager.getConnection(path, user, pass);
+                con = DriverManager.getConnection(path+pathDB, user, pass);
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             } catch (ClassNotFoundException ex) {

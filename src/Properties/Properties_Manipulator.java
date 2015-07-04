@@ -17,10 +17,9 @@ import java.util.Properties;
  */
 public class Properties_Manipulator {
     
-	public static Properties getProp() throws IOException {
+	public Properties getProp() throws IOException {
 		Properties props = new Properties();
-		FileInputStream file = new FileInputStream(
-				"C:\\Users\\Rafael\\Documents\\GitHub\\Rosa-Desktop\\src\\Properties\\data.properties");
+		FileInputStream file = new FileInputStream("src/Properties/data.properties");
 		props.load(file);
 		return props;
 
