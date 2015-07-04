@@ -9,14 +9,15 @@
 
 <AnchorPane id="mainPane" fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainPane" stylesheets="@../stylesheets/Pedido_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.viewController.Pedido_WindowController">
    <children>
-      <TableView id="tbView" fx:id="tbView" layoutX="41.0" layoutY="48.0" prefHeight="477.0" prefWidth="655.0" styleClass="tbView">
+      <TableView fx:id="tbView" layoutX="41.0" layoutY="48.0" prefHeight="477.0" prefWidth="655.0" styleClass="tbView">
         <columns>
-          <TableColumn prefWidth="83.0" text="ARTIGO" />
-          <TableColumn prefWidth="81.0" text="SAIDA" />
-            <TableColumn prefWidth="240.0" text="DESCRICAO" />
-            <TableColumn prefWidth="61.0" text="DEVOL" />
-            <TableColumn prefWidth="71.0" text="VEND" />
-            <TableColumn prefWidth="117.0" text="VALOR" />
+            <TableColumn minWidth="9.0" text="Pedido" />
+            <TableColumn prefWidth="62.0" text="Cod Art" />
+            <TableColumn prefWidth="266.0" text="Descrição" />
+            <TableColumn prefWidth="44.0" text="Saida" />
+            <TableColumn prefWidth="44.0" text="Devol" />
+            <TableColumn prefWidth="88.0" text="Prec Custo" />
+            <TableColumn prefWidth="68.0" text="Prec Vend" />
         </columns>
       </TableView>
       <Button id="btnVoltar" layoutX="717.0" layoutY="544.0" mnemonicParsing="false" onAction="#btnVoltar" styleClass="btVoltar" text="Voltar" />

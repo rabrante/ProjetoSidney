@@ -6,6 +6,7 @@
 package br.com.rosadesktop.viewController;
 
 import br.com.rosadesktop.controller.Export_Controller;
+import br.com.rosadesktop.controller.Pedido_Controller;
 import br.com.rosadesktop.interfaces.iObservable;
 import br.com.rosadesktop.interfaces.iObserver;
 import br.com.rosadesktop.model.InformationFilterExport;
@@ -13,16 +14,22 @@ import br.com.rosadesktop.model.Pedido;
 import br.com.rosadesktop.util.Util;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -44,7 +51,7 @@ public class Export_WindowController implements Initializable, iObserver{
     
     private Export_Controller controller;
     
-    @FXML private void searchOnDatabase()
+    @FXML private void searchOnDatabase(ActionEvent event)
     {
         String strCodVend = this.codVend.getText();
         
@@ -53,8 +60,8 @@ public class Export_WindowController implements Initializable, iObserver{
         
         LocalDate ldDateTo = this.dateTo.getValue();
         String strDateTo = Util.getRightDate(ldDateTo.toString());//ldDateTo.getDayOfMonth()+"/"+ldDateTo.getMonth()+"/"+ldDateTo.getYear();
-        
-        if(strCodVend != null && ldDateFrom != null && ldDateTo != null)
+         
+        if(strCodVend != null)
         {
             controller.searchButtonPressed(strCodVend,strDateFrom,strDateTo);
         }
@@ -70,16 +77,43 @@ public class Export_WindowController implements Initializable, iObserver{
     {
         // TODO
         
-        ArrayList<String> listColumnName = Util.getListColumnName();
+        Map<String,String> mapColumnName = Util.getMapColumnName();
         
-        for(int i = 0; i < listColumnName.size();i++)
+        for(int i = 0; i < tableExportContent.getColumns().size();i++)
         {
             TableColumn tableColumn = (TableColumn) tableExportContent.getColumns().get(i);
-            tableColumn.setCellValueFactory(new PropertyValueFactory(listColumnName.get(i)));
+            tableColumn.setCellValueFactory(new PropertyValueFactory(mapColumnName.get(tableColumn.getText())));
             tableExportContent.getColumns().set(i, tableColumn);
         }
+        
+        initListeners();
+    }   
     
-    }    
+    private void initListeners() 
+    {
+        tableExportContent.setRowFactory(new Callback() {
+
+            @Override
+            public Object call(Object param) 
+            {
+                TableRow row = new TableRow();
+                row.setOnMouseClicked(event -> {
+                    if (event.getClickCount() == 2 && (! row.isEmpty()) ) 
+                    {
+                        int i = tableExportContent.getSelectionModel().getSelectedIndex();
+                        Pedido pedido = (Pedido) tableExportContent.getItems().get(i);
+                        Pedido_Controller pedidoController = new Pedido_Controller(pedido);
+                        try {
+                            pedidoController.start(new Stage());
+                        } catch (Exception ex) {
+                            Logger.getLogger(Export_WindowController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+                return row ;
+            }
+        });
+    }
 
     @Override
     public void update(iObservable observable) 
@@ -88,5 +122,5 @@ public class Export_WindowController implements Initializable, iObserver{
         ObservableList<Pedido> listOfPedidos = model.getPedidos();
         tableExportContent.setItems(listOfPedidos);
     }
-    
+
 }

@@ -8,6 +8,7 @@ package br.com.rosadesktop.model;
 import br.com.rosadesktop.dao.InformationExportDAO;
 import br.com.rosadesktop.interfaces.iObservable;
 import br.com.rosadesktop.interfaces.iObserver;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -31,7 +32,11 @@ public class InformationFilterExport implements iObservable{
         this.dateFrom = null;
         this.dateTo = null;
         listOfObserver = new ArrayList<>();
-        this.informationExportDAO = new InformationExportDAO(this);
+        try {
+            this.informationExportDAO = new InformationExportDAO(this);
+        } catch (IOException ex) {
+            Logger.getLogger(InformationFilterExport.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public InformationFilterExport(String codVend, String dateFrom, String dateTo) {
@@ -39,7 +44,11 @@ public class InformationFilterExport implements iObservable{
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         listOfObserver = new ArrayList<>();
-        this.informationExportDAO = new InformationExportDAO(this);
+        try {
+            this.informationExportDAO = new InformationExportDAO(this);
+        } catch (IOException ex) {
+            Logger.getLogger(InformationFilterExport.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public String getCodVend() {

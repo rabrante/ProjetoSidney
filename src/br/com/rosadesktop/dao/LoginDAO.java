@@ -6,6 +6,7 @@
 package br.com.rosadesktop.dao;
 
 import br.com.rosadesktop.model.Login;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +26,11 @@ public class LoginDAO {
     public LoginDAO(Login login)
     {
         this.login = login;
-        this.conexao =  ConexaoDAO.getInstance();
+        try {
+            this.conexao =  ConexaoDAO.getInstance();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public boolean verifyLogin() 

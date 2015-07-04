@@ -6,6 +6,8 @@
 package br.com.rosadesktop.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -32,17 +34,31 @@ public class Util
         return temp;
     }
     
-    public static ArrayList<String> getListColumnName()
+    public static Map<String,String> getMapColumnName()
     {
-        ArrayList<String> listColumnName = new ArrayList<>();
-        listColumnName.add(0,"codVend");
-        listColumnName.add(1,"pedido");
-        listColumnName.add(2,"codCli");
-        listColumnName.add(3,"nomCli");
-        listColumnName.add(4,"totPed");
-        listColumnName.add(5,"situ");
-        listColumnName.add(6,"via");
+        Map<String,String> mapColumnName = new HashMap<>();
+        mapColumnName.put("Cod Vend","codVend");
+        mapColumnName.put("Cod Ped","pedido");
+        mapColumnName.put("Cod Cliente","codCli");
+        mapColumnName.put("Nome Cliente","nomCli");
+        mapColumnName.put("Total Ped","totPed");
+        mapColumnName.put("Status","situ");
+        mapColumnName.put("Emissão","via");
         
-        return listColumnName;
+        return mapColumnName;
+    }   
+    
+    public static Map<String,String> getMapColumnNamePedido()
+    {
+        Map<String,String> mapColumnName = new HashMap<>();
+        mapColumnName.put("Pedido", "pedido");
+        mapColumnName.put("Cod Art", "codArt");
+        mapColumnName.put("Descrição", "descricao");
+        mapColumnName.put("Saida", "qtdSai");
+        mapColumnName.put("Devol", "qtdRet");
+        mapColumnName.put("Prec Custo", "preCus");
+        mapColumnName.put("Prec Vend", "preVen");
+        
+        return mapColumnName;
     }
 }

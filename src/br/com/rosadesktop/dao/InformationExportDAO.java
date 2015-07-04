@@ -7,6 +7,7 @@ package br.com.rosadesktop.dao;
 
 import br.com.rosadesktop.model.InformationFilterExport;
 import br.com.rosadesktop.model.Pedido;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +29,7 @@ public class InformationExportDAO
     private ResultSet results;
     private ObservableList<Pedido> listOfPedidos;
     
-    public InformationExportDAO(InformationFilterExport information)
+    public InformationExportDAO(InformationFilterExport information) throws IOException
     {
         this.information = information;
         this.listOfPedidos = null;

@@ -6,7 +6,8 @@
 package br.com.rosadesktop.controller;
 
 import br.com.rosadesktop.interfaces.Window_Interface;
-import br.com.rosadesktop.viewController.Login_WindowController;
+import br.com.rosadesktop.model.Pedido;
+import br.com.rosadesktop.model.Pedido_WindowModel;
 import br.com.rosadesktop.viewController.Pedido_WindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,10 +19,17 @@ import javafx.stage.Stage;
  *
  * @author Rafael
  */
-public class Pedido_Controller  extends Application implements Window_Interface{
-    
-    
+public class Pedido_Controller  extends Application implements Window_Interface
+{
     private Stage primaryStage;
+    private final Pedido pedido;
+    private Pedido_WindowModel pedidoWindowModel;
+    private Pedido_WindowController pedidoController;
+    
+    public Pedido_Controller(Pedido pedido)
+    {
+        this.pedido = pedido;
+    }
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -29,13 +37,21 @@ public class Pedido_Controller  extends Application implements Window_Interface{
         
         Parent root = fxmlLoader.load();
         
-        Pedido_WindowController PedidoController = fxmlLoader.getController();
+        this.pedidoController = fxmlLoader.getController();
         
-        PedidoController.setController(this);
+        this.pedidoController.setController(this);
+        
+        this.pedidoWindowModel = new Pedido_WindowModel(pedido);
+        
+        this.pedidoWindowModel.addObserver(this.pedidoController);
+        
+        this.pedidoWindowModel.loadingInformation();
          
         Scene scene = new Scene(root);
         
         this.primaryStage = stage;
+        
+        this.primaryStage.setTitle(pedido.getNomCli());
         
         this.primaryStage.setScene(scene);
         this.primaryStage.setResizable(false);
