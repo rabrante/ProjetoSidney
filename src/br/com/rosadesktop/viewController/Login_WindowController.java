@@ -40,50 +40,41 @@ public class Login_WindowController implements Initializable {
     @FXML
     private PasswordField tfPass;
     
-    private Login_Controller loginWindow;
+    private Login_Controller controller;
     
     @FXML private void loginButtonPressed(ActionEvent event)
     {
         String usuario = tfUser.getText();
         String password = tfPass.getText();
         
-        Login login = new Login(usuario,password);
-        
-        if(login.validLogin())//tfPass.getText().equals("1234") && tfUser.getText().equals("test"))
-        {
-            lbStatus.setText("Logado");
-            lbStatus.setStyle("-fx-text-fill:blue;");
-            
-            Window_Controller.getInstance().openSelectedImportOrExport();
-            
-        }
-        else
-        {
-            lbStatus.setText("Usuário e senha inválido");
-            lbStatus.setStyle("-fx-text-fill:red;");
-        }
-    }
-    
-    @FXML
-    public void handleEnterPressed(KeyEvent event){
-        
-        if (event.getCode().equals(KeyCode.ENTER)) {
-        
-            loginButtonPressed(new ActionEvent());
-            
-        }
+        controller.doLogin(usuario, password);
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        if(rb != null)
-            System.out.println(rb.toString());
     }    
 
     public void setMainClass(Login_Controller aThis)
     {
-        this.loginWindow = aThis;
+        this.controller = aThis;
+    }
+
+    public void setLabelStatus(String msg) 
+    {
+        lbStatus.setText(msg);
+        lbStatus.setStyle("-fx-text-fill:red;");
+    }
+    
+    @FXML
+    public void handleEnterPressed(KeyEvent event){
+        
+        if (event.getCode().equals(KeyCode.ENTER)) 
+        {
+        
+            loginButtonPressed(new ActionEvent());
+            
+        }
     }
     
 }

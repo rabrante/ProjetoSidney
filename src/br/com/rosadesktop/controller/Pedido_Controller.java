@@ -21,17 +21,17 @@ import javafx.stage.Stage;
 public class Pedido_Controller  extends Application implements Window_Interface{
     
     
-    Stage primaryStage;
+    private Stage primaryStage;
     
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/br/com/rosadesktop/fxml/Pedido_Window.fxml"));
         
-        Parent root = FXMLLoader.load(getClass().getResource("/br/com/rosadesktop/fxml/Pedido_Window.fxml"));
+        Parent root = fxmlLoader.load();
         
         Pedido_WindowController PedidoController = fxmlLoader.getController();
         
-        PedidoController.setMainClass(this);
+        PedidoController.setController(this);
          
         Scene scene = new Scene(root);
         

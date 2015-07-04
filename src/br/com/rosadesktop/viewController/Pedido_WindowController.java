@@ -34,66 +34,20 @@ public class Pedido_WindowController implements Initializable {
      */
     @FXML
     private TableView TbPedido;
-    private Pedido_Controller PedidoWindow;
-    ObservableList<Pedido> data = FXCollections.observableArrayList( ); 
     
+    @FXML
+    private Pedido_Controller controller;
     
-    public void LoadPedido() throws SQLException{
-        ResultSet result;
-         Connection con = null;
-        con = Conexao.conectar();
-        if(con != null)
-        {
-            PreparedStatement statement = con.prepareStatement("SELECT * "
-                                                         + " FROM ITEMPEDIDO"
-                                                         + " INNER JOIN PEDIDO ON ITEMPEDIDO.PEDIDO = PEDIDO.PEDIDO"
-                                                         + " WHERE "
-                                                         + " PEDIDO.CODVEN = ?");
-                                                        // + " AND PEDIDO.CODVEN = '"+vendedor+"'");
-            statement.setString(1, "002499");
-            result = statement.executeQuery();
-            result.next();
-
-            
-            if(result.next())
-            {
-                System.out.println(result.getString(1));
-                while(result.next())
-                {  
-
-                             System.out.println(result.getString(1));
-                             //data.addAll(new ItemPedido(result.getInt("PEDIDO"), result.getInt("CODART"), result.getString("DESCRICAO"), result.getInt("QTDSAI"), result.getInt("QTDRET"), result.getFloat("PRECUS"), result.getFloat("PREVEN")));
-                             data.add(new Pedido(result.getString("PEDIDO"), result.getString("CODART"), result.getString("DESCRICAO"), result.getFloat("QTDSAI"), result.getFloat("QTDRET"), result.getFloat("PRECUS"), result.getFloat("PREVEN")));
-                }
-
-                TbPedido.setItems(data);  
-            }
-            else
-            {
-                data.removeAll();
-               // JOptionPane.showMessageDialog(null, "valor errado");
-            }
-        }
-        else
-        {
-            //JOptionPane.showMessageDialog(null, "Não foi possivel conectar");
-        
-    }
-    }
-       
-        
-        
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        if(rb != null)
-            System.out.println(rb.toString());
+        
     }    
 
-    public void setMainClass(Pedido_Controller aThis)
+    public void setController(Pedido_Controller aThis)
     {
-        this.PedidoWindow = aThis;
+        this.controller = aThis;
     }
     
       

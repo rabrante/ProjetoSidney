@@ -7,21 +7,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.viewController.Pedido_WindowController">
-    <stylesheets>
-        <URL value="@/br/com/rosadesktop/stylesheets/pedido_window.css" />
-    </stylesheets>
+<AnchorPane id="mainPane" fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainPane" stylesheets="@../stylesheets/Pedido_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.viewController.Pedido_WindowController">
    <children>
-      <TableView layoutX="41.0" layoutY="48.0" prefHeight="262.0" prefWidth="500.0">
+      <TableView id="tbView" fx:id="tbView" layoutX="41.0" layoutY="48.0" prefHeight="477.0" prefWidth="655.0" styleClass="tbView">
         <columns>
-          <TableColumn prefWidth="75.0" text="ARTIGO" />
-          <TableColumn prefWidth="75.0" text="SAIDA" />
-            <TableColumn prefWidth="75.0" text="DESCRICAO" />
-            <TableColumn prefWidth="75.0" text="DEVOL" />
-            <TableColumn prefWidth="75.0" text="VEND" />
-            <TableColumn prefWidth="75.0" text="VALOR" />
+          <TableColumn prefWidth="83.0" text="ARTIGO" />
+          <TableColumn prefWidth="81.0" text="SAIDA" />
+            <TableColumn prefWidth="240.0" text="DESCRICAO" />
+            <TableColumn prefWidth="61.0" text="DEVOL" />
+            <TableColumn prefWidth="71.0" text="VEND" />
+            <TableColumn prefWidth="117.0" text="VALOR" />
         </columns>
       </TableView>
-      <Button layoutX="489.0" layoutY="361.0" mnemonicParsing="false" text="Voltar" />
+      <Button id="btnVoltar" layoutX="717.0" layoutY="544.0" mnemonicParsing="false" onAction="#btnVoltar" styleClass="btVoltar" text="Voltar" />
    </children>
 </AnchorPane>

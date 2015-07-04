@@ -5,6 +5,7 @@
  */
 package br.com.rosadesktop.viewController;
 
+import br.com.rosadesktop.controller.Import_Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -21,9 +22,16 @@ public class Import_WindowController implements Initializable {
      * Initializes the controller class.
      */
     
+    private Import_Controller controller;
+    
     @FXML private void searchOnDatabase()
     {
         
+    }
+    
+    public void setController(Import_Controller controller)
+    {
+        this.controller = controller;
     }
     
     @Override

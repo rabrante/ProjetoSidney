@@ -5,93 +5,101 @@
  */
 package br.com.rosadesktop.model;
 
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  *
  * @author Rafael
  */
-public class Pedido {
+public class Pedido 
+{    
+    private SimpleStringProperty  codVend;
+    private SimpleStringProperty  pedido;
+    private SimpleStringProperty  codCli;
+    private SimpleStringProperty  nomCli;
+    private SimpleStringProperty  totPed;
+    private SimpleStringProperty  situ;
+    private SimpleStringProperty  via;
+    private SimpleStringProperty  datPed;
     
-    private String Pedido;
-    private String codArt;
-    private String Descricao;
-    private float qtdSai;
-    private float qtdRet;
-    private float Precus;
-    private float Preven;
-    
-    Pedido(String aInt, String aInt0) {
-        this.Pedido = aInt;
-        this.codArt = aInt0;
+    public Pedido()
+    {
+
     }
 
-   
+    public Pedido(String codVend, String pedido, String codCli, String nomCli, String totPed, String situ, String via, String datPed) 
+    {
+        this.codVend = new SimpleStringProperty(codVend);
+        this.pedido = new SimpleStringProperty(pedido);
+        this.codCli = new SimpleStringProperty(codCli);
+        this.nomCli = new SimpleStringProperty(nomCli);
+        this.totPed = new SimpleStringProperty(totPed);
+        this.situ = new SimpleStringProperty(situ);
+        this.via = new SimpleStringProperty(via);
+        this.datPed = new SimpleStringProperty(datPed);
+    }
+    
+    public String getCodVend() {
+        return codVend.get();
+    }
+
+    public void setCodVend(String codVend) {
+        this.codVend = new SimpleStringProperty(codVend);
+    }
 
     public String getPedido() {
-        return Pedido;
+        return pedido.get();
     }
 
-    public void setPedido(String Pedido) {
-        this.Pedido = Pedido;
+    public void setPedido(String pedido) {
+        this.pedido = new SimpleStringProperty(pedido);
     }
 
-    public String getCodArt() {
-        return codArt;
+    public String getCodCli() {
+        return codCli.get();
     }
 
-    public void setCodArt(String codArt) {
-        this.codArt = codArt;
+    public void setCodCli(String codCli) {
+        this.codCli = new SimpleStringProperty(codCli);
     }
 
-    public String getDescricao() {
-        return Descricao;
+    public String getNomCli() {
+        return nomCli.get();
     }
 
-    public void setDescricao(String Descricao) {
-        this.Descricao = Descricao;
+    public void setNomCli(String nomCli) {
+        this.nomCli = new SimpleStringProperty(nomCli);
     }
 
-    public float getQtdSai() {
-        return qtdSai;
+    public String getTotPed() {
+        return totPed.get();
     }
 
-    public void setQtdSai(int qtdSai) {
-        this.qtdSai = qtdSai;
+    public void setTotPed(String totPed) {
+        this.totPed = new SimpleStringProperty(totPed);
     }
 
-    public float getQtdRet() {
-        return qtdRet;
+    public String getSitu() {
+        return situ.get();
     }
 
-    public void setQtdRet(int qtdRet) {
-        this.qtdRet = qtdRet;
+    public void setSitu(String situ) {
+        this.situ = new SimpleStringProperty(situ);
     }
 
-    public float getPrecus() {
-        return Precus;
+    public String getVia() {
+        return via.get();
     }
 
-    public void setPrecus(float Precus) {
-        this.Precus = Precus;
+    public void setVia(String via) {
+        this.via = new SimpleStringProperty(via);
     }
 
-    public float getPreven() {
-        return Preven;
+    public String getDatPed() {
+        return datPed.get();
     }
 
-    public void setPreven(float Preven) {
-        this.Preven = Preven;
-    }
-    
-    
-    
-    
-   public Pedido(String _Pedido, String _codArt, String _Descricao, float _qtdSai, float _qtdRet, float _Precus, float _Preven){
-        this.Pedido = _Pedido;
-        this.codArt = _codArt;
-        this.Descricao = _Descricao;
-        this.qtdSai = _qtdSai;
-        this.qtdRet = _qtdRet;
-        this.Precus = _Precus;
-        this.Preven = _Preven;
+    public void setDatPed(String datPed) {
+        this.datPed = new SimpleStringProperty(datPed);
     }
 }

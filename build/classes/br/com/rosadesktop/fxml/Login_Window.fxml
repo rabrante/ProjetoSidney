@@ -35,10 +35,19 @@
                                     </Label>
                                     <TextField fx:id="tfUser" layoutX="171.0" layoutY="67.0" onKeyPressed="#handleEnterPressed" />
                                  </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
                               </HBox>
                               <HBox fx:id="hBoxPassword" layoutX="113.0" layoutY="101.0" spacing="10.0">
                                  <children>
                                     <Label fx:id="lbPass" layoutX="113.0" layoutY="105.0" styleClass="lbPass" text="Senha: ">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="8.0" />
+                                       </padding>
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>

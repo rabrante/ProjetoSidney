@@ -18,10 +18,12 @@ import javafx.stage.Stage;
  */
 public class Choose_Controller extends Application implements Window_Interface
 {
-    Stage primaryStage;
+    private Stage primaryStage;
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/br/com/rosadesktop/fxml/Choose_Window.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/br/com/rosadesktop/fxml/Choose_Window.fxml"));
+        Parent root = fxmlLoader.load();
         
         Scene scene = new Scene(root);
         
