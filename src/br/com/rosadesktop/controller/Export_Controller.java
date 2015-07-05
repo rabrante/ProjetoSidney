@@ -15,9 +15,11 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -82,6 +84,7 @@ public class Export_Controller extends Application implements Window_Interface{
             String pathDB = file.getPath().replace("\\", "\\\\")+description;
 //            System.out.println(pathDB);
             this.informationModel.exportPedidosSelected(pathDB);
+            JOptionPane.showMessageDialog(null, "Exportado com sucesso!");
         }
     }
 }

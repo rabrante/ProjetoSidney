@@ -60,7 +60,38 @@ public class ConexaoSQLDAO
                 boolean result = statement.execute();
                 if(!result)
                 {
-                    System.out.println("Tabela Pedido Criada");
+//                    System.out.println("Tabela Pedido Criada");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ConexaoSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        String createTableItemPedido = "CREATE TABLE IF NOT EXISTS ITEMPEDIDO "
+                                + " (PEDIDO VARCHAR(6) NOT NULL,"
+                                + " CODART VARCHAR(4) NOT NULL,"
+                                + " DESCRICAO VARCHAR(40),"
+                                + " QTDSAI INT,"
+                                + " QTDRET INT,"
+                                + " PRECUS VARCHAR(10),"
+                                + " PREVEN VARCHAR(10),"
+                                + " PRIMARY KEY (PEDIDO, CODART)"
+                                + ");" ;
+        
+        statement = null;
+        try {
+             statement = con.prepareStatement(createTableItemPedido);
+        } catch (SQLException ex) {
+            Logger.getLogger(InformationExportDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(statement != null)
+        {
+            try {
+                boolean result = statement.execute();
+                if(!result)
+                {
+//                    System.out.println("Tabela ItemPedido Pedido Criada");
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(ConexaoSQLDAO.class.getName()).log(Level.SEVERE, null, ex);

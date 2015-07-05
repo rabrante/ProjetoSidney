@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Freelancer_Sidney.jnlp">
+  <information>
+    <title>Freelancer_Sidney</title>
+    <vendor>Rafael</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Freelancer_Sidney.jar" size="118695" download="eager" />
+    <jar href="lib/firebirdsql.jar" size="303792" download="eager" />
+    <jar href="lib/jaas.jar" size="104195" download="eager" />
+    <jar href="lib/log4j-core.jar" size="66624" download="eager" />
+    <jar href="lib/mini-concurrent.jar" size="6473" download="eager" />
+    <jar href="lib/mini-j2ee.jar" size="22200" download="eager" />
+    <jar href="lib/sqlite-jdbc-3.8.10.1.jar" size="6623425" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Freelancer_Sidney" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="br.com.rosadesktop.main.main"  name="Freelancer_Sidney" />
+  <update check="always"/>
+</jnlp>
