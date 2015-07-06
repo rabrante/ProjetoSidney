@@ -30,6 +30,13 @@ public class Pedido_WindowModel implements iObservable
         listOfObserver = new ArrayList<>();
         pedidoWindowDAO = new Pedido_WindowDAO(this);
     }
+
+    public Pedido_WindowModel(Pedido pedido, String pathDB) 
+    {
+        this.pedido = pedido;
+        listOfObserver = new ArrayList<>();
+        pedidoWindowDAO = new Pedido_WindowDAO(this,pathDB);
+    }
     
     public void loadingInformation()
     {

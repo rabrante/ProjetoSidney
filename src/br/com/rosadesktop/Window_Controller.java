@@ -13,9 +13,11 @@ import br.com.rosadesktop.controller.Login_Controller;
 import br.com.rosadesktop.controller.Pedido_Controller;
 import br.com.rosadesktop.model.Pedido;
 import br.com.rosadesktop.viewController.Export_WindowController;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TableView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -79,7 +81,13 @@ public class Window_Controller {
     
     public void openImportWindow()
     {
-        Import_Controller importWindow = new Import_Controller();
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(null);
+        
+        String pathDB = file.getPath();
+        pathDB = pathDB.replace("\\", "\\\\");
+        
+        Import_Controller importWindow = new Import_Controller(pathDB);
         
         try {
             importWindow.start(new Stage());
@@ -110,6 +118,19 @@ public class Window_Controller {
         if(this.pedidoController != null)
         {
             this.pedidoController.getStage().close();
+        }
+    }
+
+    public void openWindowPedido(Pedido pedido, String pathDB) 
+    {
+        if(currentWindow instanceof Import_Controller)
+        {
+            this.pedidoController = new Pedido_Controller(pedido,pathDB);
+            try {
+                ((Pedido_Controller)pedidoController).start(new Stage());
+            } catch (Exception ex) {
+                Logger.getLogger(Export_WindowController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     

@@ -26,10 +26,18 @@ public class Pedido_Controller  extends Application implements Window_Interface
     private final Pedido pedido;
     private Pedido_WindowModel pedidoWindowModel;
     private Pedido_WindowController pedidoController;
+    private String pathDB;
     
     public Pedido_Controller(Pedido pedido)
     {
         this.pedido = pedido;
+        this.pathDB = null;
+    }
+
+    public Pedido_Controller(Pedido pedido, String pathDB)
+    {
+        this.pedido = pedido;
+        this.pathDB = pathDB;
     }
     
     @Override
@@ -42,8 +50,14 @@ public class Pedido_Controller  extends Application implements Window_Interface
         
         this.pedidoController.setController(this);
         
-        this.pedidoWindowModel = new Pedido_WindowModel(pedido);
-        
+        if(this.pathDB == null)
+        {
+            this.pedidoWindowModel = new Pedido_WindowModel(pedido);
+        }
+        else
+        {
+            this.pedidoWindowModel = new Pedido_WindowModel(pedido,pathDB);
+        }
         this.pedidoWindowModel.addObserver(this.pedidoController);
         
         this.pedidoWindowModel.loadingInformation();

@@ -40,6 +40,13 @@ public class Pedido_WindowDAO
             Logger.getLogger(Pedido_WindowDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Pedido_WindowDAO(Pedido_WindowModel pedido, String pathDB) 
+    {
+        this.pedidoModel = pedido;
+        this.pedido = this.pedidoModel.getPedido();
+        this.con = ConexaoSQLDAO.getInstance(pathDB);
+    }
     
     public void loadListOfItems() throws SQLException
     {

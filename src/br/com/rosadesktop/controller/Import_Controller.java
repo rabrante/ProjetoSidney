@@ -6,6 +6,7 @@
 package br.com.rosadesktop.controller;
 
 import br.com.rosadesktop.interfaces.Window_Interface;
+import br.com.rosadesktop.model.InformationImport;
 import br.com.rosadesktop.viewController.Import_WindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,13 @@ public class Import_Controller extends Application implements Window_Interface{
     private Stage primaryStage;
     
     private Import_WindowController importWindowController;
+    private InformationImport importModel;
+    private final String pathDB;
+    
+    public Import_Controller(String pathDB)
+    {
+        this.pathDB = pathDB;
+    }
     
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -30,6 +38,10 @@ public class Import_Controller extends Application implements Window_Interface{
         importWindowController = fxmlLoader.getController();
         
         importWindowController.setController(this);
+        
+        this.importModel = new InformationImport(this.pathDB);
+        this.importModel.addObserver(this.importWindowController);
+        this.importModel.loadViewInformation();
         
         
         Scene scene = new Scene(root);
@@ -43,5 +55,19 @@ public class Import_Controller extends Application implements Window_Interface{
     @Override
     public Stage getStage() {
         return this.primaryStage;
+    }
+
+    public void searchButtonPressed(String strCodVend, String strDateFrom, String strDateTo) 
+    {
+        this.importModel.setCodVend(strCodVend);
+        this.importModel.setDateFrom(strDateFrom);
+        this.importModel.setDateTo(strDateTo);
+        
+        this.importModel.loadInformation();
+    }
+
+    public String getPathDB() 
+    {
+        return this.pathDB;
     }
 }
