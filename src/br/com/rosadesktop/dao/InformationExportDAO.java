@@ -40,10 +40,22 @@ public class InformationExportDAO
     
     public void loadListOfPedidos() throws SQLException
     {
-        String query = " SELECT PEDIDO.* "
-                     + " FROM PEDIDO"
-                     + " WHERE PEDIDO.CODVEN = ?"
-                     + " AND PEDIDO.DATPED BETWEEN ? AND ?";
+        String query = "SELECT *" +
+                        "FROM PEDIDO a" +
+                        " where a.codven = ?" +
+                        " and ( substring(a.DATPED from 7 for 10) >= substring(? from 7 for 10)" +
+                        "        and (substring(a.DATPED from 4 for 5) = substring(? from 4 for 5)" +
+                        "        and substring(a.DATPED from 1 for 2) >= substring(? from 1 for 2))" +
+                        "        OR ( substring(a.DATPED from 7 for 10) >= substring(? from 7 for 10)" +
+                        "	     AND substring(a.DATPED from 4 for 5) > substring(? from 4 for 5) ) )" +
+                        " " +
+                        "	AND (substring(a.DATPED from 7 for 10) <= substring(? from 7 for 10)" +
+                        "        	and (substring(a.DATPED from 4 for 5) = substring(? from 4 for 5)" +
+                        "        	and substring(a.DATPED from 1 for 2) <= substring(? from 1 for 2) )" +
+                        "        	OR ( substring(a.DATPED from 7 for 10) <= substring(? from 7 for 10)" +
+                        "	     		AND substring(a.DATPED from 4 for 5) < substring(? from 4 for 5) ))";
+        
+        
         
         PreparedStatement statement = null;
         try {
@@ -56,7 +68,15 @@ public class InformationExportDAO
         {
             statement.setString(1, information.getCodVend());
             statement.setString(2, information.getDateFrom());
-            statement.setString(3, information.getDateTo());
+            statement.setString(3, information.getDateFrom());
+            statement.setString(4, information.getDateFrom());
+            statement.setString(5, information.getDateFrom());
+            statement.setString(6, information.getDateFrom());
+            statement.setString(7, information.getDateTo());
+            statement.setString(8, information.getDateTo());
+            statement.setString(9, information.getDateTo());
+            statement.setString(10, information.getDateTo());
+            statement.setString(11, information.getDateTo());
             
             results = statement.executeQuery();
             
