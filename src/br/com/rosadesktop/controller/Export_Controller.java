@@ -35,9 +35,11 @@ public class Export_Controller extends Application implements Window_Interface{
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/br/com/rosadesktop/fxml/Export_Window.fxml"));
+        this.exportWindowController = new Export_WindowController();
+        fxmlLoader.setController(this.exportWindowController);
         Parent root = fxmlLoader.load();
         
-        this.exportWindowController = fxmlLoader.getController();
+        
         
         this.exportWindowController.setController(this);
         

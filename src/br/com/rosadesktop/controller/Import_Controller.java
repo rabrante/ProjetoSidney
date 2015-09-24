@@ -33,9 +33,12 @@ public class Import_Controller extends Application implements Window_Interface{
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/br/com/rosadesktop/fxml/Import_Window.fxml"));
+        importWindowController = new Import_WindowController();
+        fxmlLoader.setController(importWindowController);
+        
         Parent root = fxmlLoader.load();
         
-        importWindowController = fxmlLoader.getController();
+        
         
         importWindowController.setController(this);
         

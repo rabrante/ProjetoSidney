@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="mainPane" fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainPane" stylesheets="@../stylesheets/Pedido_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rosadesktop.viewController.Pedido_WindowController">
+<AnchorPane id="mainPane" fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainPane" stylesheets="@../stylesheets/Pedido_Window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"> <!--fx:controller="br.com.rosadesktop.viewController.Pedido_WindowController">-->
    <children>
       <TableView fx:id="tbView" layoutX="41.0" layoutY="48.0" prefHeight="477.0" prefWidth="655.0" styleClass="tbView">
         <columns>
