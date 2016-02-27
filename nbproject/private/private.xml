@@ -3,17 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Claudio/Desktop/Repositorios/Rosa-Desktop/src/br/com/rosadesktop/main/main.java</file>
-=======
-            <file>file:/C:/Users/Rafael/Documents/GitHub/Rosa-Desktop/src/br/com/rosadesktop/viewController/Pedido_WindowController.java</file>
-            <file>file:/C:/Users/Rafael/Documents/GitHub/Rosa-Desktop/src/br/com/rosadesktop/controller/Login_Controller.java</file>
-            <file>file:/C:/Users/Rafael/Documents/GitHub/Rosa-Desktop/src/br/com/rosadesktop/viewController/Login_WindowController.java</file>
-            <file>file:/C:/Users/Rafael/Documents/GitHub/Rosa-Desktop/src/freelancer_sidney/ItemPedido.java</file>
-            <file>file:/C:/Users/Rafael/Documents/GitHub/Rosa-Desktop/src/freelancer_sidney/LoadTable.java</file>
-            <file>file:/C:/Users/Rafael/Documents/GitHub/Rosa-Desktop/src/br/com/rosadesktop/model/Pedido.java</file>
-            <file>file:/C:/Users/Rafael/Documents/GitHub/Rosa-Desktop/src/br/com/rosadesktop/controller/Pedido_Controller.java</file>
->>>>>>> ca3d827c68135cb200c3800f2010a52598e8c488
+            <file>file:/C:/Users/Rafael/Documents/GitHub/RosaFaseDesktop/src/br/com/rosadesktop/thread/Progress.java</file>
+            <file>file:/C:/Users/Rafael/Documents/GitHub/RosaFaseDesktop/src/br/com/rosadesktop/dao/InformationExportDAO.java</file>
+            <file>file:/C:/Users/Rafael/Documents/GitHub/RosaFaseDesktop/src/br/com/rosadesktop/main/main.java</file>
         </group>
     </open-files>
 </project-private>

@@ -8,6 +8,7 @@ package br.com.rosadesktop.dao;
 import br.com.rosadesktop.model.InformationFilterExport;
 import br.com.rosadesktop.model.ItemPedido;
 import br.com.rosadesktop.model.Pedido;
+import br.com.rosadesktop.thread.Progress;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -40,6 +41,7 @@ public class InformationExportDAO
     
     public void loadListOfPedidos() throws SQLException
     {
+        
         String query = "SELECT *" +
                         "FROM PEDIDO a" +
                         " where a.codven = ?" +
@@ -112,11 +114,18 @@ public class InformationExportDAO
         Connection conSQLlite = ConexaoSQLDAO.getInstance(pathDB);
         if(listOfPedidos != null)
         {
+            Progress progresso = new Progress();
+            Thread threadProgresso = new Thread(progresso);
+            threadProgresso.start();
+            int i = 0;
             for(Pedido pedido : listOfPedidos)
             {
+                System.out.println("inserindo linha " + i);
                 insertPedido(conSQLlite,pedido);
+                i++;
             }
-
+            progresso.stopRun();
+            
             try {
                 conSQLlite.close();
             } catch (SQLException ex) {
@@ -251,9 +260,10 @@ public class InformationExportDAO
                 boolean result = statement.execute();
                 if(!result)
                 {
-//                    System.out.println("Item inserido na tabela de Pedido");
+                    System.out.println("Item inserido na tabela de Pedido");
                 }
             } catch (SQLException ex) {
+                
                 JOptionPane.showMessageDialog(null, "Lista de pedidos já foi exportada.", "Alerta", JOptionPane.WARNING_MESSAGE);
 //                Logger.getLogger(ConexaoSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
