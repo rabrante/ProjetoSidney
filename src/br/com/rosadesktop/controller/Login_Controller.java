@@ -31,10 +31,11 @@ public class Login_Controller extends Application implements Window_Interface{
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/br/com/rosadesktop/fxml/Login_Window.fxml"));
-        
+        loginController = new Login_WindowController();
+        fxmlLoader.setController(loginController);
         Parent root = fxmlLoader.load();
         
-        loginController = fxmlLoader.getController();
+        
         
         loginController.setMainClass(this);
          

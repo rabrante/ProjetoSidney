@@ -43,10 +43,11 @@ public class Pedido_Controller  extends Application implements Window_Interface
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/br/com/rosadesktop/fxml/Pedido_Window.fxml"));
-        
+        this.pedidoController = new Pedido_WindowController();
+        fxmlLoader.setController(this.pedidoController);
         Parent root = fxmlLoader.load();
         
-        this.pedidoController = fxmlLoader.getController();
+        
         
         this.pedidoController.setController(this);
         

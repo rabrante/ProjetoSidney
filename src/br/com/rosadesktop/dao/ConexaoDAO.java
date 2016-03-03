@@ -8,7 +8,9 @@ import br.com.rosadesktop.properties.Properties_Manipulator;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,4 +49,12 @@ public class ConexaoDAO {
         return con;
     }
 
+    public static void closeConnection(ResultSet results, Statement statement, Connection con) throws SQLException {
+        if(results != null)
+            results.close();
+        if(statement != null)
+            statement.close();
+        if(con != null)
+            con.close();
+    }
 }

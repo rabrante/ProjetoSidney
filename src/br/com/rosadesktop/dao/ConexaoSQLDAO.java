@@ -8,7 +8,9 @@ package br.com.rosadesktop.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -97,5 +99,14 @@ public class ConexaoSQLDAO
                 Logger.getLogger(ConexaoSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public static void closeConnection(ResultSet results, Statement statement, Connection con) throws SQLException {
+        if(results != null)
+            results.close();
+        if(statement != null)
+            statement.close();
+        if(con != null)
+            con.close();
     }
 }
