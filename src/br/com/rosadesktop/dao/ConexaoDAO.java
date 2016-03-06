@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,8 +41,10 @@ public class ConexaoDAO {
                 Class.forName(dataBase);
                 con = DriverManager.getConnection(path+pathDB, user, pass);
             } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Erro ao se conectar com o Banco de dados");
                 System.out.println(e.getMessage());
             } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao se conectar com o Banco de dados");
                 Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

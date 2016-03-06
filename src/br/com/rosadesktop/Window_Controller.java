@@ -14,6 +14,7 @@ import br.com.rosadesktop.controller.Pedido_Controller;
 import br.com.rosadesktop.model.Pedido;
 import br.com.rosadesktop.viewController.Export_WindowController;
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TableView;
@@ -66,17 +67,21 @@ public class Window_Controller {
     
     public void openExportWindow()
     {
-        Export_Controller export = new Export_Controller();
-        
-        try {
-            export.start(new Stage());
-        } catch (Exception ex) {
-            Logger.getLogger(Window_Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Stage s = currentWindow.getStage();
-        currentWindow = export;
-        
-       s.getScene().getWindow().hide();
+       
+                    Export_Controller export = new Export_Controller();
+
+                    try {
+                        
+                        export.start(new Stage());
+                    } catch (Exception ex) {
+                        Logger.getLogger(Window_Controller.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    Stage s = currentWindow.getStage();
+                    currentWindow = export;
+
+                   s.getScene().getWindow().hide();
+            
+
     }
     
     public void openImportWindow()
