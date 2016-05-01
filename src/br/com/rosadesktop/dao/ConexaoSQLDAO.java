@@ -99,6 +99,33 @@ public class ConexaoSQLDAO
                 Logger.getLogger(ConexaoSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        String createTableUsuario = "CREATE TABLE IF NOT EXISTS USUARIO "
+                                + " (NOME VARCHAR(12) PRIMARY KEY NOT NULL,"
+                                + " SENHA VARCHAR(6),"
+                                + " VALIDA VARCHAR(10),"
+                                + " LIMITE VARCHAR(10)"
+                                + ");" ;
+        
+        statement = null;
+        try {
+             statement = con.prepareStatement(createTableUsuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(InformationExportDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(statement != null)
+        {
+            try {
+                boolean result = statement.execute();
+                if(!result)
+                {
+//                    System.out.println("Tabela Pedido Criada");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ConexaoSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     public static void closeConnection(ResultSet results, Statement statement, Connection con) throws SQLException {

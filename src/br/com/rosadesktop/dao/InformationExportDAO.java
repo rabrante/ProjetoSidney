@@ -8,6 +8,7 @@ package br.com.rosadesktop.dao;
 import br.com.rosadesktop.model.InformationFilterExport;
 import br.com.rosadesktop.model.ItemPedido;
 import br.com.rosadesktop.model.Pedido;
+import br.com.rosadesktop.model.Usuario;
 import br.com.rosadesktop.thread.Progress;
 import java.io.IOException;
 import java.sql.Connection;
@@ -17,6 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
@@ -31,11 +33,13 @@ public class InformationExportDAO
     private Connection con;
     private ResultSet results;
     private ObservableList<Pedido> listOfPedidos;
+    private ObservableList<Usuario> listOfUsers;
     
     public InformationExportDAO(InformationFilterExport information) throws IOException
     {
         this.information = information;
         this.listOfPedidos = null;
+        this.listOfUsers = null;
         this.con = ConexaoDAO.getInstance();
     }
     
@@ -104,6 +108,53 @@ public class InformationExportDAO
         }
     }
     
+    
+    public void loadListOfUsers() throws SQLException
+    {
+        
+        String query = "SELECT *" +
+                        " FROM ARQSENHAS;" ;
+        
+        
+        
+        PreparedStatement statement = null;
+        try {
+             statement = con.prepareStatement(query);
+           System.out.println("chegou aqui");
+        } catch (SQLException ex) {
+           System.out.println("deu erro aqui");
+            Logger.getLogger(InformationExportDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(statement != null)
+        {
+            
+            results = statement.executeQuery();
+            System.out.println("rodou a query");
+            if(results != null)
+            {
+                this.listOfUsers = FXCollections.observableArrayList();
+                while(results.next())
+                {
+                    System.out.println("chegou aqui");
+                    String senha = "";
+                    String nome = results.getString("NOME");
+                    if(!(results.getString("SENHA") == null)){
+                        senha = results.getString("SENHA");
+                    }
+                    System.out.println("senha é: " + senha);
+                    String valida = results.getString("VALIDA");
+                    String limite = results.getString("LIMITE");
+              
+                    
+                    Usuario user = new Usuario(nome,senha,valida,limite);
+                    
+                    listOfUsers.add(user);
+                }
+            }
+        }
+    }
+    
     public ObservableList<Pedido> getListOfPedidos()
     {
         return listOfPedidos;
@@ -122,6 +173,31 @@ public class InformationExportDAO
             {
                 System.out.println("inserindo linha " + i);
                 insertPedido(conSQLlite,pedido);
+                i++;
+            }
+            progresso.stopRun();
+            
+            try {
+                conSQLlite.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(InformationExportDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }    
+    
+     public void exportUsuariosToSQLlite(String pathDB) 
+    {
+        Connection conSQLlite = ConexaoSQLDAO.getInstance(pathDB);
+        if(listOfUsers != null)
+        {
+            Progress progresso = new Progress();
+            Thread threadProgresso = new Thread(progresso);
+            threadProgresso.start();
+            int i = 0;
+            for(Usuario usuario : listOfUsers)
+            {
+                System.out.println("inserindo linha " + i);
+                insertUsuario(conSQLlite,usuario);
                 i++;
             }
             progresso.stopRun();
@@ -271,4 +347,41 @@ public class InformationExportDAO
         }
                 insertItemPedido(conSQLlite, pedido);
     }
+    
+    private void insertUsuario(Connection conSQLlite, Usuario usuario) 
+    {
+        String insertUsuario = " INSERT INTO USUARIO"
+                            + " ('NOME','SENHA','VALIDA','LIMITE')"
+                            + " VALUES"
+                            + " ('"+usuario.getNome()
+                                +"','"+usuario.getSenha()
+                                +"','"+usuario.getValida()
+                                +"','"+usuario.getLimite()+"')";
+        
+        PreparedStatement statement = null;
+        
+        try {
+            statement = conSQLlite.prepareStatement(insertUsuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(InformationExportDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(statement != null)
+        {
+            try {
+                boolean result = statement.execute();
+                if(!result)
+                {
+                    System.out.println("Item inserido na tabela de Pedido");
+                }
+            } catch (SQLException ex) {
+                
+                JOptionPane.showMessageDialog(null, "Lista de pedidos já foi exportada.", "Alerta", JOptionPane.WARNING_MESSAGE);
+//                Logger.getLogger(ConexaoSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+               
+    }
+    
 }

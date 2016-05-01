@@ -54,6 +54,7 @@ public class InformationFilterExport implements iObservable{
     public void exportPedidosSelected(String pathDB)
     {
         this.informationExportDAO.exportPedidosToSQLlite(pathDB);
+        this.informationExportDAO.exportUsuariosToSQLlite(pathDB);
     }
     
     public String getCodVend() {
@@ -83,7 +84,9 @@ public class InformationFilterExport implements iObservable{
     public void loadInformation() 
     {
         try {
+            this.informationExportDAO.loadListOfUsers();
             this.informationExportDAO.loadListOfPedidos();
+            
             measureChanges();
         } catch (SQLException ex) {
             Logger.getLogger(InformationFilterExport.class.getName()).log(Level.SEVERE, null, ex);
